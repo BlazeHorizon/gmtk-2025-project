@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://debaeg15rk26a"]
+[gd_scene load_steps=18 format=3 uid="uid://debaeg15rk26a"]
 
 [ext_resource type="Script" uid="uid://dm30ouip10g0o" path="res://scenes/maps/prelaunch_area.gd" id="1_0et32"]
 [ext_resource type="PackedScene" uid="uid://datatrsbrqlp6" path="res://scenes/entities/tracks/track_part_2.tscn" id="2_ti75c"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://y1g1g0ritebn" path="res://scripts/thrusters.gd" id="8_ti75c"]
 [ext_resource type="PackedScene" uid="uid://cqaur568cgb1w" path="res://scenes/props/planetoid.tscn" id="9_y3ptb"]
 [ext_resource type="Texture2D" uid="uid://bpie22j2ha5k" path="res://assets/art/Smoke.png" id="9_yrt3e"]
+[ext_resource type="Script" uid="uid://bfcso2owdult6" path="res://scenes/maps/camera_2d.gd" id="11_spx7k"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yrt3e"]
 
@@ -157,6 +158,10 @@ position = Vector2(5456, -2912)
 
 [node name="Planetoid3" parent="." instance=ExtResource("9_y3ptb")]
 position = Vector2(6944, -1208)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("11_spx7k")
+panning_speed = 500
 
 [connection signal="pressed" from="CanvasLayer/launch" to="." method="_on_launch_pressed"]
 
