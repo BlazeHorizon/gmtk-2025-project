@@ -6,6 +6,7 @@ class_name Car
 @export var rigid_body: RigidBody2D
 @export var pin_joint: Joint2D
 @export var join_to: Car
+@export var health_component: HealthComponent
 
 var track_attached:TrackPart
 var speed:float = -1
@@ -17,6 +18,7 @@ func _ready() -> void:
 	if owner is TrackPart:
 		track_attached = owner
 	GameData.launch_train_cars.connect(_on_launch_train_cars)
+	health_component.damaged.connect(GameData._on_playercart_damage)
 
 
 func _on_launch_train_cars() -> void:

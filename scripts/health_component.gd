@@ -27,7 +27,8 @@ func damage(val: int) -> void:
 		if val <= 0:
 			val = health
 			killed.emit()
-		damaged.emit()
+		damaged.emit(val)
+		#damaged.emit()
 	elif val > health:
 		if val > max_health:
 			val = max_health
@@ -55,7 +56,8 @@ func _on_body_entered(n: Node2D):
 			if damage >= 10:
 				_inv = true
 				get_tree().create_timer(1.0, false, true, false).timeout.connect(_on_timeout)
-				health -= damage
+				damage(damage)
+				#health -= damage
 		#else:
 			#print("No contact from %s to %s" % [start_pos, end_pos])
 

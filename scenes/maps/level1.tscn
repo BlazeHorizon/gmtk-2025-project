@@ -30,6 +30,7 @@ point_count = 2
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="prelaunch_area2" type="Node2D"]
+position = Vector2(-652, -46)
 script = ExtResource("1_0et32")
 
 [node name="HUD" parent="." instance=ExtResource("2_spx7k")]

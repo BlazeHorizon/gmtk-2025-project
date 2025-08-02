@@ -8,11 +8,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmqho"]
 size = Vector2(64, 32)
 
-[node name="car" type="PathFollow2D" node_paths=PackedStringArray("rigid_body", "pin_joint")]
+[node name="car" type="PathFollow2D" node_paths=PackedStringArray("rigid_body", "pin_joint", "health_component")]
 script = ExtResource("1_xmqho")
 collision_layer = 2
 rigid_body = NodePath("RigidBody2D")
 pin_joint = NodePath("RigidBody2D/PinJoint2D")
+health_component = NodePath("RigidBody2D/HealthComponent")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 collision_layer = 0

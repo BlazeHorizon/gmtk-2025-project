@@ -1,8 +1,12 @@
 extends Node
 
 signal launch_train_cars
+signal playercart_damage(new_health: int)
 
 var player_info: PlayerInfo = PlayerInfo.new()
+
+func _on_playercart_damage(new_health: int):
+	playercart_damage.emit(new_health)
 
 func _ready():
 	# TODO: Tweak the base stats for player

@@ -17,4 +17,10 @@ grow_horizontal = 2
 focus_mode = 0
 text = "Launch"
 
+[node name="healthbar" type="ProgressBar" parent="."]
+offset_left = 377.0
+offset_top = 93.0
+offset_right = 788.0
+offset_bottom = 120.0
+
 [connection signal="pressed" from="launch" to="." method="_on_launch_pressed"]
