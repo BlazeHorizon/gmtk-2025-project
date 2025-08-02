@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://dm30ouip10g0o" path="res://scenes/maps/prelaunch_area.gd" id="1_0et32"]
 [ext_resource type="PackedScene" uid="uid://b8unyji1o4s1f" path="res://scenes/UI/hud.tscn" id="2_spx7k"]
 [ext_resource type="PackedScene" uid="uid://datatrsbrqlp6" path="res://scenes/entities/tracks/track_part_2.tscn" id="2_ti75c"]
-
 [ext_resource type="PackedScene" uid="uid://cy4mepircebey" path="res://scenes/entities/tracks/track_part_1.tscn" id="3_y3ptb"]
 [ext_resource type="PackedScene" uid="uid://daumqxv4g2jxy" path="res://scenes/entities/tracks/track_part_3.tscn" id="5_spx7k"]
 [ext_resource type="PackedScene" uid="uid://dbwbnuxjh618g" path="res://scenes/entities/tracks/track_part_5.tscn" id="6_pv1k2"]
 [ext_resource type="PackedScene" uid="uid://di4vh4401voyy" path="res://scenes/entities/tracks/track_part_begin.tscn" id="7_0et32"]
 [ext_resource type="PackedScene" uid="uid://livv5577jy07" path="res://scenes/entities/tracks/track_part_4.tscn" id="7_ejv5p"]
 [ext_resource type="Script" uid="uid://y1g1g0ritebn" path="res://scripts/thrusters.gd" id="8_ti75c"]
-[ext_resource type="PackedScene" uid="uid://i5aogpbxnfau" path="res://scenes/props/planetoid.tscn" id="9_y3ptb"]
+[ext_resource type="PackedScene" uid="uid://cqaur568cgb1w" path="res://scenes/props/planetoid.tscn" id="9_y3ptb"]
+
 [ext_resource type="Texture2D" uid="uid://bpie22j2ha5k" path="res://assets/art/Smoke.png" id="9_yrt3e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yrt3e"]

@@ -1,15 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3wyr5telb23c"]
+[gd_scene load_steps=12 format=3 uid="uid://c3wyr5telb23c"]
 
 [ext_resource type="Theme" uid="uid://wios74ose78t" path="res://assets/ui_theme.tres" id="1_iysyy"]
 [ext_resource type="Script" uid="uid://gxfh6b1pwadg" path="res://scenes/UI/menu.gd" id="1_u81ku"]
 [ext_resource type="Shader" uid="uid://drdhf2mbaim50" path="res://scenes/UI/space.gdshader" id="2_2tfbb"]
 [ext_resource type="PackedScene" uid="uid://lvbj5aq6xm08" path="res://scenes/props/menu_bg_floating_obj.tscn" id="4_78n2u"]
 [ext_resource type="FontFile" uid="uid://byr5ua7821djh" path="res://assets/Oswald-VariableFont_wght.ttf" id="5_ny0ke"]
-[ext_resource type="PackedScene" uid="uid://bklsq5dgkbhdd" path="res://scenes/UI/custom_button.tscn" id="6_78n2u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2un8v"]
 shader = ExtResource("2_2tfbb")
 shader_parameter/bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_u81ku"]
+default_font_size = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_78n2u"]
+shader = ExtResource("4_ny0ke")
+shader_parameter/blur_amount = 0.988
+shader_parameter/mix_amount = 0.0
+shader_parameter/color_over = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_2tfbb"]
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_2un8v"]
+default_font_size = 20
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -90,15 +104,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -366.0
-offset_top = -192.0
-offset_right = 366.0
-offset_bottom = -66.0
+offset_left = -174.0
+offset_top = -182.0
+offset_right = 174.0
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("5_ny0ke")
 bbcode_enabled = true
-text = "[font_size=80][wave amp=0.0 freq=0.0 connected=1]Roller Coaster Rocketeer"
+text = "[font_size=80][wave amp=0.0 freq=0.0 connected=1]Game Name"
 scroll_active = false
 
 [node name="button_container" type="VBoxContainer" parent="."]
@@ -108,42 +122,86 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -242.0
-offset_top = -41.0
-offset_right = 242.0
-offset_bottom = 196.0
+offset_left = -172.0
+offset_top = -33.0
+offset_right = 172.0
+offset_bottom = 204.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="start_game" parent="button_container" instance=ExtResource("6_78n2u")]
-custom_minimum_size = Vector2(350, 0)
+[node name="start_game" type="Button" parent="button_container"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
+focus_mode = 0
+theme = SubResource("Theme_u81ku")
 text = "Start Game"
 
-[node name="settings" parent="button_container" instance=ExtResource("6_78n2u")]
-custom_minimum_size = Vector2(350, 0)
+[node name="blur_bg" type="ColorRect" parent="button_container/start_game"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_78n2u")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="settigns" type="Button" parent="button_container"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
+focus_mode = 0
+theme = SubResource("Theme_u81ku")
 text = "Settings"
 
-[node name="credits" parent="button_container" instance=ExtResource("6_78n2u")]
-custom_minimum_size = Vector2(350, 0)
+[node name="blur_bg" type="ColorRect" parent="button_container/settigns"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_78n2u")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="credits" type="Button" parent="button_container"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
+focus_mode = 0
+theme = SubResource("Theme_2tfbb")
 text = "Credits"
 
-[node name="quit" parent="button_container" instance=ExtResource("6_78n2u")]
-custom_minimum_size = Vector2(350, 0)
+[node name="blur_bg" type="ColorRect" parent="button_container/credits"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_78n2u")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="quit" type="Button" parent="button_container"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
+focus_mode = 0
+theme = SubResource("Theme_2un8v")
 text = "Quit"
+
+[node name="blur_bg" type="ColorRect" parent="button_container/quit"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_78n2u")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="button_container/start_game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="button_container/credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="button_container/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="button_container/quit" to="." method="_on_button_pressed"]

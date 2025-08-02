@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6mjubwj2rd4w"]
+[gd_scene load_steps=2 format=3 uid="uid://6mjubwj2rd4w"]
 
 [ext_resource type="Script" uid="uid://bnaue6a3mk4bd" path="res://scenes/sound_manager.gd" id="1_rupev"]
-[ext_resource type="AudioStream" uid="uid://53176g4y4a4" path="res://assets/sfx/Button 1.mp3" id="2_p1llj"]
 
 [node name="SoundManager" type="Node"]
 script = ExtResource("1_rupev")
 
-[node name="button_press" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_p1llj")
+[node name="example" type="AudioStreamPlayer" parent="."]

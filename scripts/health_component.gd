@@ -7,8 +7,8 @@ class_name HealthComponent
 	get:
 		return health
 
-signal healed
-signal damaged
+signal healed(new_health: int)
+signal damaged(new_health: int)
 signal killed
 
 var _parent: Node2D:
@@ -27,7 +27,7 @@ func damage(val: int) -> void:
 		if val <= 0:
 			val = health
 			killed.emit()
-		damaged.emit()
+		damaged.emit(val)
 	elif val > health:
 		if val > max_health:
 			val = max_health
@@ -52,10 +52,11 @@ func _on_body_entered(n: Node2D):
 			var damage = (_parent.linear_velocity * result.normal).length() / 10.0
 			print("Contact from %s to %s" % [start_pos, result.position])
 			print("%s took %s damage" % [_parent.name, floor(damage)])
-			if damage >= 10:
+			if damage >= 0:
 				_inv = true
 				get_tree().create_timer(1.0, false, true, false).timeout.connect(_on_timeout)
-				health -= damage
+				damage(damage)
+				#health -= damage
 		#else:
 			#print("No contact from %s to %s" % [start_pos, end_pos])
 
