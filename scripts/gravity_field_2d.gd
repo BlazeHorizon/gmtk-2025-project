@@ -1,6 +1,7 @@
 extends Area2D
 class_name GravityField2D
 
+signal car_landed()
 
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -20,6 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Speed:", speed)
 		if speed <= 1:
 			print_debug("DEBUG: '%s' entered gravity field and is stopped." % body.name)
+		car_landed.emit()
 
 
 func _on_body_exited(body: Node2D) -> void:

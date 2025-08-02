@@ -155,7 +155,7 @@ scale_amount_curve = SubResource("Curve_spx7k")
 color_ramp = SubResource("Gradient_pv1k2")
 
 [node name="Planetoid" parent="." instance=ExtResource("9_y3ptb")]
-position = Vector2(2520, -1712)
+position = Vector2(3234, -1807)
 
 [node name="Planetoid2" parent="." instance=ExtResource("9_y3ptb")]
 position = Vector2(5456, -2912)
