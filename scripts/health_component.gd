@@ -52,7 +52,7 @@ func _on_body_entered(n: Node2D):
 			var damage = (_parent.linear_velocity * result.normal).length() / 10.0
 			print("Contact from %s to %s" % [start_pos, result.position])
 			print("%s took %s damage" % [_parent.name, floor(damage)])
-			if damage >= 0:
+			if damage >= 5:
 				_inv = true
 				get_tree().create_timer(1.0, false, true, false).timeout.connect(_on_timeout)
 				damage(damage)

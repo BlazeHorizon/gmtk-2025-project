@@ -127,6 +127,7 @@ func _update_side_beam_positions() -> void:
 
 func update_height() -> void:
 	if ground_marker == self or ground_marker == null or point_converter == null:
+		print("ground_marker: ", ground_marker == self, ground_marker == null, "point_converter: ", point_converter == null)
 		return
 	var local_point_top = point_converter.to_local(global_position)
 	var local_point_bottom = point_converter.to_local(ground_marker.global_position)

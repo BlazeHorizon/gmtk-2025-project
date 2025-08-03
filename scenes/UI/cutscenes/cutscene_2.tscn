@@ -1,0 +1,32 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdm5qs8i5g2t6"]
+
+[ext_resource type="PackedScene" uid="uid://dtwwhoynn664" path="res://scenes/UI/cutscene_manager.tscn" id="1_nsm5x"]
+[ext_resource type="PackedScene" uid="uid://c3wyr5telb23c" path="res://scenes/UI/menu.tscn" id="2_ohdtc"]
+[ext_resource type="Texture2D" uid="uid://dwcyl30cw6djn" path="res://assets/cut_scenes/delivery_cutscenes/delivery_1/delivery_1_1.png" id="3_ohdtc"]
+[ext_resource type="Texture2D" uid="uid://cfjg8kocwnst4" path="res://assets/cut_scenes/delivery_cutscenes/delivery_1/delivery_1_2.png" id="4_rwdhg"]
+[ext_resource type="Texture2D" uid="uid://bmescdxkds8ks" path="res://assets/cut_scenes/delivery_cutscenes/delivery_1/delivery_1_3.png" id="5_8rv1n"]
+[ext_resource type="Script" uid="uid://bwl7smwceha2g" path="res://scenes/UI/cutscene_frames.gd" id="6_d8sa0"]
+[ext_resource type="AudioStream" uid="uid://yt35lsw7wd1l" path="res://assets/music/Pause.mp3" id="7_rwdhg"]
+
+[sub_resource type="Resource" id="Resource_x3rul"]
+script = ExtResource("6_d8sa0")
+frames = Array[CompressedTexture2D]([ExtResource("3_ohdtc"), ExtResource("4_rwdhg"), ExtResource("5_8rv1n")])
+metadata/_custom_type_script = "uid://bwl7smwceha2g"
+
+[node name="cutscene1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cutscene_manager" parent="." instance=ExtResource("1_nsm5x")]
+layout_mode = 1
+finished_action = 0
+change_scene_to = ExtResource("2_ohdtc")
+cut_scene = SubResource("Resource_x3rul")
+
+[node name="Pause" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rwdhg")
+autoplay = true

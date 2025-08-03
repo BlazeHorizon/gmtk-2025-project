@@ -3,9 +3,48 @@
 ## class_name TrackFactory
 extends Node
 
+enum TrackScene {
+	UNKNOWN = -1,
+	STATION = 0,
+	LAUNCHER,
+	BASIC,
+	DOWN_HILL,
+	HILL,
+	LOOP,
+	
+}
+
+var scene_lookup: Dictionary[TrackScene, PackedScene] = {
+	TrackScene.STATION: preload("res://scenes/entities/tracks/station_track_part.tscn"),
+	TrackScene.LAUNCHER: preload("res://scenes/entities/tracks/launcher_track_part.tscn"),
+	TrackScene.BASIC: preload("res://scenes/entities/tracks/basic_track_part.tscn"),
+	TrackScene.DOWN_HILL: preload("res://scenes/entities/tracks/down_hill_track_part.tscn"),
+	TrackScene.HILL: preload("res://scenes/entities/tracks/hill_track_part.tscn"),
+	TrackScene.LOOP: preload("res://scenes/entities/tracks/loop_track_part.tscn"),
+}
+
+func get_scene_from_part(part_info: PartInfo, ground_marker: Control) -> TrackPart:
+	var track_part_scene: PackedScene = scene_lookup.get(part_info.scene_index as TrackScene)
+	if track_part_scene == null:
+		return null
+	var track_part: TrackPart = track_part_scene.instantiate()
+	match part_info.scene_index:
+		TrackScene.STATION:
+			track_part.track_type = TrackPart.TrackType.BEGINING
+		TrackScene.LAUNCHER:
+			track_part.track_type = TrackPart.TrackType.ENDING
+		_:
+			track_part.track_type = TrackPart.TrackType.NORMAL
+	track_part.ground_marker = ground_marker
+	track_part.part_info = part_info
+	return track_part
+
 var _common_tracks: Array[PartInfo] = [
 	PartInfo.new(
-		"Common Loop",
+		"Common Flat",
+		PartInfo.Type.TRACK,
+		3, # cost
+		TrackScene.BASIC,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(
@@ -14,12 +53,57 @@ var _common_tracks: Array[PartInfo] = [
 				PropertyModifier.CompoundingType.ADDITIVE_FLAT,
 			)
 		]
-	)
+	),
+	PartInfo.new(
+		"Common Slope",
+		PartInfo.Type.TRACK,
+		3, # cost
+		TrackScene.DOWN_HILL,
+		preload("res://icon.svg"),
+		[
+			PropertyModifier.new(
+				LaunchStats.AffectedProperty.SPEED,
+				1.0, # amount
+				PropertyModifier.CompoundingType.ADDITIVE_FLAT,
+			)
+		]
+	),
+	PartInfo.new(
+		"Common Hill",
+		PartInfo.Type.TRACK,
+		3, # cost
+		TrackScene.HILL,
+		preload("res://icon.svg"),
+		[
+			PropertyModifier.new(
+				LaunchStats.AffectedProperty.SPEED,
+				1.0, # amount
+				PropertyModifier.CompoundingType.ADDITIVE_FLAT,
+			)
+		]
+	),
+	PartInfo.new(
+		"Common Loop",
+		PartInfo.Type.TRACK,
+		3, # cost
+		TrackScene.LOOP,
+		preload("res://icon.svg"),
+		[
+			PropertyModifier.new(
+				LaunchStats.AffectedProperty.SPEED,
+				1.0, # amount
+				PropertyModifier.CompoundingType.ADDITIVE_FLAT,
+			)
+		]
+	),
 ]
 
 var _uncommon_tracks: Array[PartInfo] = [
 	PartInfo.new(
 		"Uncommon Loop",
+		PartInfo.Type.TRACK,
+		3, # cost
+		TrackScene.LOOP,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(
@@ -34,6 +118,9 @@ var _uncommon_tracks: Array[PartInfo] = [
 var _rare_tracks: Array[PartInfo] = [
 	PartInfo.new(
 		"Rare Loop",
+		PartInfo.Type.TRACK,
+		3, # cost
+		TrackScene.LOOP,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(
@@ -48,6 +135,9 @@ var _rare_tracks: Array[PartInfo] = [
 var _legendary_tracks: Array[PartInfo] = [
 	PartInfo.new(
 		"Legendary Loop",
+		PartInfo.Type.TRACK,
+		3, # cost
+		TrackScene.LOOP,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(

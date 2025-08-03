@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://2br77iw7h8p8"]
+
+[ext_resource type="Texture2D" uid="uid://dcgcbk83uqwk2" path="res://assets/art/Planet_Aychtoo-O.png" id="1_j0qj0"]
+[ext_resource type="Script" uid="uid://yt6q002kj5cr" path="res://scripts/gravity_field_2d.gd" id="2_8q64q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aiq0e"]
+radius = 184.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cfvu2"]
+radius = 1056.0
+
+[node name="Planetoid" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="PlanetAychtoo-o" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(16, -80)
+scale = Vector2(0.298699, 0.298699)
+texture = ExtResource("1_j0qj0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_aiq0e")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+gravity_space_override = 2
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 551.349
+script = ExtResource("2_8q64q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_cfvu2")

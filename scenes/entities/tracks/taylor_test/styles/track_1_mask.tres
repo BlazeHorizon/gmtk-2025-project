@@ -1,7 +1,6 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://60gs6lfwot3h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hr5hs"]
-load_path = "res://.godot/imported/CoasterMask1.png-131d16907790436e615a00d0d0ffe95a.ctex"
 
 [resource]
 content_margin_bottom = 0.0

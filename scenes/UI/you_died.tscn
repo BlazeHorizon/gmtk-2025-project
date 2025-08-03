@@ -1,15 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://csdj3xnqhungl"]
+[gd_scene load_steps=6 format=3 uid="uid://csdj3xnqhungl"]
 
 [ext_resource type="Theme" uid="uid://wios74ose78t" path="res://assets/ui_theme.tres" id="1_8cf1f"]
 [ext_resource type="Script" uid="uid://cc0yt770nm3bk" path="res://scenes/UI/you_died.gd" id="2_8cf1f"]
-[ext_resource type="Shader" uid="uid://drdhf2mbaim50" path="res://scenes/UI/space.gdshader" id="3_4mtli"]
 [ext_resource type="PackedScene" uid="uid://lvbj5aq6xm08" path="res://scenes/props/menu_bg_floating_obj.tscn" id="4_33ace"]
 [ext_resource type="FontFile" uid="uid://byr5ua7821djh" path="res://assets/Oswald-VariableFont_wght.ttf" id="5_2jb0c"]
 [ext_resource type="PackedScene" uid="uid://bklsq5dgkbhdd" path="res://scenes/UI/custom_button.tscn" id="6_1r4tr"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2un8v"]
-shader = ExtResource("3_4mtli")
-shader_parameter/bg_color = Color(0, 0, 0, 1)
 
 [node name="YouDied" type="Control"]
 layout_mode = 3
@@ -22,13 +17,13 @@ theme = ExtResource("1_8cf1f")
 script = ExtResource("2_8cf1f")
 
 [node name="bg" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_2un8v")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 0.227451)
 
 [node name="background_itemes" type="Control" parent="."]
 visible = false
@@ -133,13 +128,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 text = "Return to Main Menu"
 
-[node name="credits" parent="button_container" instance=ExtResource("6_1r4tr")]
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-text = "Credits"
-
 [node name="quit" parent="button_container" instance=ExtResource("6_1r4tr")]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
@@ -149,5 +137,4 @@ text = "Quit"
 
 [connection signal="pressed" from="button_container/start_game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="button_container/return_to_main_menu" to="." method="_on_return_to_main_menu_pressed"]
-[connection signal="pressed" from="button_container/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="button_container/quit" to="." method="_on_quit_pressed"]

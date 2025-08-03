@@ -3,9 +3,17 @@
 ## class_name CartFactory
 extends Node
 
+enum CartScene {
+	UNKNOWN = -1,
+	BASIC = 0
+}
+
 var _common_carts: Array[PartInfo] = [
 	PartInfo.new(
 		"Common Passenger Cart",
+		PartInfo.Type.CART,
+		4, # cost
+		CartScene.UNKNOWN,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(), # base speed = 1
@@ -25,6 +33,9 @@ var _common_carts: Array[PartInfo] = [
 var _uncommon_carts: Array[PartInfo] = [
 	PartInfo.new(
 		"Uncommon Passenger Cart",
+		PartInfo.Type.CART,
+		4, # cost
+		CartScene.UNKNOWN,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(), # base speed = 1
@@ -39,6 +50,9 @@ var _uncommon_carts: Array[PartInfo] = [
 var _rare_carts: Array[PartInfo] = [
 	PartInfo.new(
 		"Rare Passenger Cart",
+		PartInfo.Type.CART,
+		4, # cost
+		CartScene.UNKNOWN,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(
@@ -47,7 +61,7 @@ var _rare_carts: Array[PartInfo] = [
 			),
 			PropertyModifier.new(
 				LaunchStats.AffectedProperty.FUN,
-				30.0,
+				40.0,
 				PropertyModifier.CompoundingType.ADDITIVE_PERCENTAGE
 			)
 		]
@@ -57,6 +71,9 @@ var _rare_carts: Array[PartInfo] = [
 var _legendary_carts: Array[PartInfo] = [
 	PartInfo.new(
 		"Legendary Passenger Cart",
+		PartInfo.Type.CART,
+		4, # cost
+		CartScene.UNKNOWN,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(

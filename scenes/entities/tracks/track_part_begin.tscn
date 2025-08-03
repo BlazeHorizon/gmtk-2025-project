@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://di4vh4401voyy"]
+[gd_scene load_steps=8 format=3 uid="uid://c2su7upj8urv5"]
 
-[ext_resource type="Script" uid="uid://dcp4881wiphnj" path="res://scenes/entities/tracks/track_part_1.gd" id="1_dlh7h"]
+[ext_resource type="Script" path="res://scenes/entities/tracks/track_part_1.gd" id="1_dlh7h"]
 [ext_resource type="Script" uid="uid://cp2pdp7mh6isl" path="res://scripts/car_spawner.gd" id="2_g6r8f"]
 [ext_resource type="PackedScene" uid="uid://b7p8cmat2ofin" path="res://scenes/entities/tracks/taylor_test/track_art.tscn" id="3_vo5gl"]
 [ext_resource type="StyleBox" uid="uid://bdg4xxk3oox7h" path="res://scenes/entities/tracks/taylor_test/styles/track_start_mask.tres" id="4_ut0jr"]
