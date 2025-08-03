@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8fb5npj56ygd"]
+
+[ext_resource type="Script" uid="uid://cchlf2nn02rar" path="res://scenes/maps/market/market_card/property_label/property_label.gd" id="1_hhpyu"]
+[ext_resource type="FontFile" uid="uid://byr5ua7821djh" path="res://assets/Oswald-VariableFont_wght.ttf" id="2_677vs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wd26x"]
+font = ExtResource("2_677vs")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u8uwg"]
+font = ExtResource("2_677vs")
+
+[node name="PropertyLabel" type="MarginContainer"]
+script = ExtResource("1_hhpyu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ValueLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_wd26x")
+
+[node name="TypeLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 0.141176, 1)
+layout_mode = 2
+text = "empty"
+label_settings = SubResource("LabelSettings_u8uwg")

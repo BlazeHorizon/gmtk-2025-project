@@ -13,27 +13,17 @@ func _enter_tree() -> void:
 		var cart_count = override_cart_count
 		for i in range(cart_count):
 			var c = CAR_SCENE.instantiate()
-			c.rigid_body.linear_damp = 4.0
-			c.rigid_body.angular_damp = 6.0
 			c.position = position + Vector2.RIGHT * SEPERATION * i
 			add_child(c)
-
-
-func _get_thrusters() -> Thrusters:
-	return preload("res://scenes/thrusters/thruster_smoke.tscn").instantiate()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if !Engine.is_editor_hint():
-		_prepare_carts()
-		_add_cars_to_scene_tree.call_deferred()
-
-func _prepare_carts() -> void:
 		# Prepare to spawn the carts
 		var info = GameData.player_info
 		#var launch_info = info.calculate_final_launch_stats()
-		#var launch_info = info.base_stats
+		var launch_info = info.base_stats
 		var cart_count = info.linked_carts.size()
 		if override_cart_count > 0:
 			cart_count = override_cart_count
@@ -49,9 +39,9 @@ func _prepare_carts() -> void:
 				cam.zoom = Vector2.ONE * 0.5
 				c.rigid_body.add_child(cam)
 
-				var th = _get_thrusters()
-				th.disabled = true
-				c.thrusters = th
+				var th = Thrusters.new()
+				th.fuel = launch_info.thruster_fuel
+				th.power = launch_info.thruster_power / 100.0
 				c.rigid_body.add_child(th)
 		
 		# Join the cars together
@@ -60,24 +50,10 @@ func _prepare_carts() -> void:
 		for i in range(_carts.size()-1):
 			var c = _carts[i]
 			c.join_to = _carts[i+1]
+	_spawn_cars.call_deferred()
 
 
-func _add_cars_to_scene_tree() -> void:
+func _spawn_cars() -> void:
 	if !Engine.is_editor_hint():
 		for c in _carts:
 			add_sibling(c)
-			c.add_to_group("player")
-			c.rigid_body.add_to_group("player")
-
-
-func _clear_cars() -> void:
-	if !Engine.is_editor_hint():
-		for c in _carts:
-			c.queue_free()
-		_carts.clear()
-
-
-func reload_cars() -> void:
-	_clear_cars()
-	_prepare_carts()
-	_add_cars_to_scene_tree()

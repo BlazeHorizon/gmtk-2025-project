@@ -1,28 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxfqyqp4acdt0"]
+[gd_scene load_steps=6 format=3 uid="uid://dxfqyqp4acdt0"]
 
 [ext_resource type="Script" uid="uid://h4voga0pd62" path="res://scenes/entities/car.gd" id="1_xmqho"]
 [ext_resource type="Texture2D" uid="uid://c1q0sjub0i3xm" path="res://assets/art/cartempty.webp" id="2_3xone"]
 [ext_resource type="Script" uid="uid://lets3pwxygq1" path="res://scripts/health_component.gd" id="2_sypbk"]
-[ext_resource type="AudioStream" uid="uid://bx32tmvly443" path="res://assets/sfx/ShipClankMedium.wav" id="3_gr2pg"]
-[ext_resource type="AudioStream" uid="uid://bdp7tdk8r35s6" path="res://assets/sfx/Explosion.wav" id="4_e6ew1"]
-[ext_resource type="AudioStream" uid="uid://651b2hyp5k7u" path="res://assets/sfx/CartNoises.wav" id="4_t48xn"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xmqho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmqho"]
 size = Vector2(64, 32)
 
-[node name="car" type="PathFollow2D" node_paths=PackedStringArray("rigid_body", "pin_joint", "health_component", "cart_noises")]
+[node name="car" type="PathFollow2D" node_paths=PackedStringArray("rigid_body", "pin_joint", "health_component")]
 script = ExtResource("1_xmqho")
 collision_layer = 2
 rigid_body = NodePath("RigidBody2D")
 pin_joint = NodePath("RigidBody2D/PinJoint2D")
 health_component = NodePath("RigidBody2D/HealthComponent")
-cart_noises = NodePath("CartNoises")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 collision_layer = 0
 collision_mask = 0
+mass = 0.5
 freeze = true
 contact_monitor = true
 max_contacts_reported = 1
@@ -46,22 +43,8 @@ shape = SubResource("RectangleShape2D_xmqho")
 position = Vector2(-40, -8)
 rotation = 1.57079
 node_a = NodePath("..")
-bias = 0.9
 
 [node name="HealthComponent" type="Node" parent="RigidBody2D"]
 script = ExtResource("2_sypbk")
 max_health = 300
 metadata/_custom_type_script = "uid://lets3pwxygq1"
-
-[node name="Explosion" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_e6ew1")
-
-[node name="ShipClankMedium" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_gr2pg")
-
-[node name="CartNoises" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_t48xn")
-
-[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
-[connection signal="damaged" from="RigidBody2D/HealthComponent" to="." method="_on_health_component_damaged"]
-[connection signal="killed" from="RigidBody2D/HealthComponent" to="." method="_on_health_component_killed"]

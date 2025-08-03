@@ -25,5 +25,5 @@ void fragment() {
 		float r = rand(SCREEN_UV.xy);
 		color = r * (0.85 * sin(TIME * (r * 5.0) + 720.0 * r) + 0.95);
 	}
-	COLOR *= vec4(vec3(color), COLOR.a) + bg_color;
+	COLOR = vec4(vec3(color),1.0) + bg_color;
 }

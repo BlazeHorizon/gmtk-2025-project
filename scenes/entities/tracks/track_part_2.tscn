@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://datatrsbrqlp6"]
+
+[ext_resource type="Script" uid="uid://dcp4881wiphnj" path="res://scenes/entities/tracks/track_part_1.gd" id="1_ekg5b"]
+[ext_resource type="PackedScene" uid="uid://b7p8cmat2ofin" path="res://scenes/entities/tracks/taylor_test/track_art.tscn" id="2_4ev0u"]
+[ext_resource type="Texture2D" uid="uid://dgap87t1p7cy0" path="res://scenes/entities/tracks/taylor_test/images/CoasterMask2_2.png" id="3_1b4x2"]
+[ext_resource type="Texture2D" uid="uid://dik43dnkyiwko" path="res://scenes/entities/tracks/taylor_test/images/CoasterTrack2.png" id="3_bfdxm"]
+
+[sub_resource type="Curve2D" id="Curve2D_q0nch"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 128, 0, 0, 0, 0, 128, 168, 0, 0, 0, 0, 192, 128, 0, 0, 0, 0, 224, 136, 0, 0, 0, 0, 256, 192)
+}
+point_count = 6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oxk6s"]
+radius = 14.0357
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfdxm"]
+content_margin_bottom = 0.0
+texture = ExtResource("3_1b4x2")
+texture_margin_left = 1.0
+texture_margin_top = 254.722
+texture_margin_right = 1.0
+texture_margin_bottom = 55.0
+region_rect = Rect2(1, 1, 254.512, 254)
+
+[node name="TrackPart" type="Node2D"]
+script = ExtResource("1_ekg5b")
+track_speed = 500.0
+
+[node name="grab_detect" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.454902)
+offset_top = -193.0
+offset_right = 256.0
+focus_mode = 0
+flat = true
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+position = Vector2(0, -192)
+points = PackedVector2Array(0, 0, 64, 128, 128, 168, 192, 128, 224, 136, 256, 192)
+default_color = Color(0.410156, 0.410156, 0.410156, 1)
+
+[node name="coaster_path" type="Path2D" parent="."]
+position = Vector2(0, -192)
+curve = SubResource("Curve2D_q0nch")
+
+[node name="start" type="PathFollow2D" parent="coaster_path"]
+rotation = 1.10715
+
+[node name="track_start" type="Area2D" parent="coaster_path/start"]
+rotation = 1.32109
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coaster_path/start/track_start"]
+shape = SubResource("CircleShape2D_oxk6s")
+
+[node name="end" type="PathFollow2D" parent="coaster_path"]
+position = Vector2(256, 192)
+rotation = 1.05165
+progress = 437.432
+
+[node name="track_end" type="Area2D" parent="coaster_path/end"]
+rotation = 1.32109
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coaster_path/end/track_end"]
+shape = SubResource("CircleShape2D_oxk6s")
+
+[node name="TrackArt" parent="." node_paths=PackedStringArray("left_beam_marker", "right_beam_marker") instance=ExtResource("2_4ev0u")]
+unique_name_in_owner = true
+offset_top = -201.0
+offset_right = 257.0
+offset_bottom = 218.0
+left_beam_marker = NodePath("../coaster_path/start")
+right_beam_marker = NodePath("../coaster_path/end")
+style_box_mask = SubResource("StyleBoxTexture_bfdxm")
+track_path_art_behind_texture = ExtResource("3_bfdxm")
+
+[connection signal="button_down" from="grab_detect" to="." method="_on_grab_detect_button_down"]
+[connection signal="button_up" from="grab_detect" to="." method="_on_grab_detect_button_up"]
+[connection signal="area_entered" from="coaster_path/end/track_end" to="." method="_on_track_end_area_entered"]
+[connection signal="area_exited" from="coaster_path/end/track_end" to="." method="_on_track_end_area_exited"]

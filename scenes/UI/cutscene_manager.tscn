@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtwwhoynn664"]
+[gd_scene load_steps=7 format=3 uid="uid://dtwwhoynn664"]
 
 [ext_resource type="Texture2D" uid="uid://ch2m4wjv744ix" path="res://assets/cut_scenes/first/1.webp" id="1_e42uc"]
 [ext_resource type="Script" uid="uid://c4mdqerqur26x" path="res://scenes/UI/cutscene_manager.gd" id="1_qbx4r"]
+[ext_resource type="Resource" uid="uid://2yjl463oqpgm" path="res://scenes/UI/cutscene_frames/first_cutscene.tres" id="2_06iya"]
 
 [sub_resource type="Animation" id="Animation_blysh"]
 length = 0.001
@@ -49,6 +50,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qbx4r")
+cut_scene = ExtResource("2_06iya")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

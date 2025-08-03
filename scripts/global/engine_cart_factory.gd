@@ -3,11 +3,6 @@
 ## class_name EngineCartFactory
 extends Node
 
-enum EngineCartScene {
-	UNKNOWN = -1,
-	BASIC = 0
-}
-
 # TODO: (not required) to help testing add a get_engine_cart method to get a specific engine_cart?
 
 ## Provided a rarity matching RarityRandomizer.Rarity enum return a engine_cart
@@ -32,9 +27,6 @@ func _ready() -> void:
 
 var STARTING_ENGINE_CART = PartInfo.new(
 	"Starting Engine Cart",
-	PartInfo.Type.ENGINE_CART,
-	5, # cost
-	EngineCartScene.UNKNOWN,
 	preload("res://icon.svg"),
 	[
 		PropertyModifier.new(
@@ -48,9 +40,6 @@ var STARTING_ENGINE_CART = PartInfo.new(
 var _common_engine_carts: Array[PartInfo] = [
 	PartInfo.new(
 		"Common Engine Cart",
-		PartInfo.Type.ENGINE_CART,
-		5, # cost
-		EngineCartScene.UNKNOWN,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(
@@ -65,9 +54,6 @@ var _common_engine_carts: Array[PartInfo] = [
 var _uncommon_engine_carts: Array[PartInfo] = [
 	PartInfo.new(
 		"Uncommon Engine Cart",
-		PartInfo.Type.ENGINE_CART,
-		5, # cost
-		EngineCartScene.UNKNOWN,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(
@@ -82,14 +68,11 @@ var _uncommon_engine_carts: Array[PartInfo] = [
 var _rare_engine_carts: Array[PartInfo] = [
 	PartInfo.new(
 		"Rare Engine Cart",
-		PartInfo.Type.ENGINE_CART,
-		5, # cost
-		EngineCartScene.UNKNOWN,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(
 				LaunchStats.AffectedProperty.SPEED,
-				5.0, # amount
+				3.0, # amount
 				PropertyModifier.CompoundingType.ADDITIVE_FLAT,
 			)
 		]
@@ -99,9 +82,6 @@ var _rare_engine_carts: Array[PartInfo] = [
 var _legendary_engine_carts: Array[PartInfo] = [
 	PartInfo.new(
 		"Legendary Engine Cart",
-		PartInfo.Type.ENGINE_CART,
-		5, # cost
-		EngineCartScene.UNKNOWN,
 		preload("res://icon.svg"),
 		[
 			PropertyModifier.new(

@@ -9,10 +9,6 @@ enum actions {change_scene, hide}
 @export var cut_scene:CutsceneFrames
 var changing_scene:bool = false
 
-func _ready() -> void:
-	if cut_scene:
-		texture_rect.texture = cut_scene.frames[0]
-
 func _on_next_slide_pressed() -> void:
 	var next_frame = cut_scene.get_next_frame()
 	if next_frame == null:

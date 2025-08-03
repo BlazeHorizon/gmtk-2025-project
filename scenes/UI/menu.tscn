@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3wyr5telb23c"]
+[gd_scene load_steps=8 format=3 uid="uid://c3wyr5telb23c"]
 
 [ext_resource type="Theme" uid="uid://wios74ose78t" path="res://assets/ui_theme.tres" id="1_iysyy"]
 [ext_resource type="Script" uid="uid://gxfh6b1pwadg" path="res://scenes/UI/menu.gd" id="1_u81ku"]
 [ext_resource type="Shader" uid="uid://drdhf2mbaim50" path="res://scenes/UI/space.gdshader" id="2_2tfbb"]
-[ext_resource type="AudioStream" uid="uid://d4ixcby0ub4q8" path="res://assets/music/Main Menu_Main Theme.mp3" id="3_svcqa"]
 [ext_resource type="PackedScene" uid="uid://lvbj5aq6xm08" path="res://scenes/props/menu_bg_floating_obj.tscn" id="4_78n2u"]
 [ext_resource type="FontFile" uid="uid://byr5ua7821djh" path="res://assets/Oswald-VariableFont_wght.ttf" id="5_ny0ke"]
 [ext_resource type="PackedScene" uid="uid://bklsq5dgkbhdd" path="res://scenes/UI/custom_button.tscn" id="6_78n2u"]
@@ -21,10 +20,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_iysyy")
 script = ExtResource("1_u81ku")
-
-[node name="MainMenuMainTheme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_svcqa")
-autoplay = true
 
 [node name="bg" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_2un8v")

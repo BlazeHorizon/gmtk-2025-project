@@ -1,14 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://di4vh4401voyy"]
+[gd_scene load_steps=7 format=3 uid="uid://livv5577jy07"]
 
-[ext_resource type="Script" uid="uid://dcp4881wiphnj" path="res://scenes/entities/tracks/track_part_1.gd" id="1_dlh7h"]
-[ext_resource type="Script" uid="uid://cp2pdp7mh6isl" path="res://scripts/car_spawner.gd" id="2_g6r8f"]
-[ext_resource type="PackedScene" uid="uid://b7p8cmat2ofin" path="res://scenes/entities/tracks/taylor_test/track_art.tscn" id="3_vo5gl"]
-[ext_resource type="StyleBox" uid="uid://bdg4xxk3oox7h" path="res://scenes/entities/tracks/taylor_test/styles/track_start_mask.tres" id="4_ut0jr"]
-[ext_resource type="Texture2D" uid="uid://cobs1cywv3x1s" path="res://scenes/entities/tracks/taylor_test/images/CoasterTrackStart.png" id="5_g6r8f"]
+[ext_resource type="Script" uid="uid://dcp4881wiphnj" path="res://scenes/entities/tracks/track_part_1.gd" id="1_cftvv"]
+[ext_resource type="PackedScene" uid="uid://b7p8cmat2ofin" path="res://scenes/entities/tracks/taylor_test/track_art.tscn" id="2_yvu3b"]
+[ext_resource type="StyleBox" uid="uid://bqfnsrrygxbp5" path="res://scenes/entities/tracks/taylor_test/styles/track_4_mask.tres" id="3_d1eac"]
+[ext_resource type="Texture2D" uid="uid://cthvye8me4f5q" path="res://scenes/entities/tracks/taylor_test/images/CoasterTrack4.png" id="3_hm3ms"]
 
 [sub_resource type="Curve2D" id="Curve2D_q0nch"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 384, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 192, 0)
 }
 point_count = 2
 
@@ -16,21 +15,21 @@ point_count = 2
 radius = 14.0357
 
 [node name="track_part_1" type="Node2D"]
-script = ExtResource("1_dlh7h")
-track_speed = 400.0
+script = ExtResource("1_cftvv")
+track_speed = 10000.0
 
 [node name="grab_detect" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.454902)
-offset_top = -185.0
-offset_right = 384.0
+offset_top = -64.0
+offset_right = 192.0
 offset_bottom = 64.0
 focus_mode = 0
 flat = true
 
 [node name="Line2D" type="Line2D" parent="."]
 visible = false
-points = PackedVector2Array(384, 0, 0, 0)
-default_color = Color(0.618289, 0.298994, 0.303947, 1)
+points = PackedVector2Array(192, 0, 0, 0)
+default_color = Color(0.410156, 0.410156, 0.410156, 1)
 
 [node name="coaster_path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_q0nch")
@@ -46,7 +45,7 @@ collision_mask = 32
 shape = SubResource("CircleShape2D_oxk6s")
 
 [node name="end" type="PathFollow2D" parent="coaster_path"]
-position = Vector2(384, 0)
+position = Vector2(192, 0)
 progress = 437.432
 
 [node name="track_end" type="Area2D" parent="coaster_path/end"]
@@ -57,18 +56,15 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coaster_path/end/track_end"]
 shape = SubResource("CircleShape2D_oxk6s")
 
-[node name="CarSpawner" type="Node2D" parent="coaster_path"]
-script = ExtResource("2_g6r8f")
-
-[node name="TrackArt" parent="." node_paths=PackedStringArray("left_beam_marker", "right_beam_marker") instance=ExtResource("3_vo5gl")]
+[node name="TrackArt" parent="." node_paths=PackedStringArray("left_beam_marker", "right_beam_marker") instance=ExtResource("2_yvu3b")]
 unique_name_in_owner = true
-offset_top = -259.0
-offset_right = 385.0
-offset_bottom = 242.0
+offset_top = -35.0
+offset_right = 192.0
+offset_bottom = 455.0
 left_beam_marker = NodePath("../coaster_path/start")
 right_beam_marker = NodePath("../coaster_path/end")
-style_box_mask = ExtResource("4_ut0jr")
-track_path_art_behind_texture = ExtResource("5_g6r8f")
+style_box_mask = ExtResource("3_d1eac")
+track_path_art_behind_texture = ExtResource("3_hm3ms")
 
 [connection signal="button_down" from="grab_detect" to="." method="_on_grab_detect_button_down"]
 [connection signal="button_up" from="grab_detect" to="." method="_on_grab_detect_button_up"]

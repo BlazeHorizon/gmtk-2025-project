@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://l1xt2hsig81s" path="res://scenes/UI/pause_menu.gd" id="1_qo2fb"]
 [ext_resource type="PackedScene" uid="uid://bklsq5dgkbhdd" path="res://scenes/UI/custom_button.tscn" id="2_bl585"]
-[ext_resource type="Shader" path="res://scenes/UI/blur_shader.gdshader" id="2_mko1u"]
+[ext_resource type="Shader" uid="uid://b2bye2xne3t0d" path="res://scenes/UI/blur_shader.gdshader" id="2_mko1u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_feath"]
 shader = ExtResource("2_mko1u")

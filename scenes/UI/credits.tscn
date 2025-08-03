@@ -136,9 +136,9 @@ label_settings = SubResource("LabelSettings_v6dd7")
 [node name="developer" type="Label" parent="credits_text"]
 layout_mode = 0
 offset_left = 190.0
-offset_top = 185.0
+offset_top = 195.0
 offset_right = 429.0
-offset_bottom = 470.0
+offset_bottom = 448.0
 text = "DEVELOPMENT
 - Miguel, The Ace of Spade
 - Taylor Blanche
@@ -146,8 +146,7 @@ text = "DEVELOPMENT
 - Marcus Laudadio
 - Barrett Timmons
 - Unkawa
-- WillPlum
-- Blaze_Horizon"
+- WillPlum"
 label_settings = SubResource("LabelSettings_g3j2f")
 
 [node name="music" type="Label" parent="credits_text"]

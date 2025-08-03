@@ -6,13 +6,6 @@ signal player_died
 
 var player_info: PlayerInfo = PlayerInfo.new()
 
-# TODO: put code in here before emit to combine player info and call
-# calculate so that we know when any listeners hear that launch has been called
-# we can use player_info.current_stats
-func prepare_and_launch():
-	# TODO: put the pre launch code here:
-	launch_train_cars.emit()
-
 func _on_playercart_damage(new_health: int):
 	playercart_damage.emit(new_health)
 	

@@ -1,16 +1,16 @@
 [gd_scene load_steps=9 format=3 uid="uid://crtg2aujnc5rl"]
 
 [ext_resource type="Script" uid="uid://dm30ouip10g0o" path="res://scenes/maps/prelaunch_area.gd" id="1_031nh"]
-[ext_resource type="PackedScene" uid="uid://cy4mepircebey" path="res://scenes/entities/tracks/hill_track_part.tscn" id="2_8q4c4"]
-[ext_resource type="PackedScene" uid="uid://datatrsbrqlp6" path="res://scenes/entities/tracks/down_hill_track_part.tscn" id="2_we6vc"]
+[ext_resource type="PackedScene" uid="uid://cy4mepircebey" path="res://scenes/entities/tracks/track_part_1.tscn" id="2_8q4c4"]
+[ext_resource type="PackedScene" uid="uid://datatrsbrqlp6" path="res://scenes/entities/tracks/track_part_2.tscn" id="2_we6vc"]
 [ext_resource type="PackedScene" uid="uid://b2bc0hsiynf81" path="res://scenes/entities/player.tscn" id="3_feoef"]
-[ext_resource type="PackedScene" uid="uid://daumqxv4g2jxy" path="res://scenes/entities/tracks/loop_track_part.tscn" id="5_qxx0j"]
-[ext_resource type="PackedScene" uid="uid://dbwbnuxjh618g" path="res://scenes/entities/tracks/launcher_track_part.tscn" id="6_yavw2"]
-[ext_resource type="PackedScene" uid="uid://livv5577jy07" path="res://scenes/entities/tracks/basic_track_part.tscn" id="7_ib238"]
+[ext_resource type="PackedScene" uid="uid://daumqxv4g2jxy" path="res://scenes/entities/tracks/track_part_3.tscn" id="5_qxx0j"]
+[ext_resource type="PackedScene" uid="uid://dbwbnuxjh618g" path="res://scenes/entities/tracks/track_part_5.tscn" id="6_yavw2"]
+[ext_resource type="PackedScene" uid="uid://livv5577jy07" path="res://scenes/entities/tracks/track_part_4.tscn" id="7_ib238"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_we6vc"]
 
-[node name="prelaunch_area3" type="Node2D"]
+[node name="prelaunch_area2" type="Node2D"]
 script = ExtResource("1_031nh")
 
 [node name="UI" type="CanvasLayer" parent="."]

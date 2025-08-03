@@ -1,10 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://c45ksb05at7o2"]
 
 [ext_resource type="Script" uid="uid://dc63ifw8cu1qx" path="res://scenes/test/launch_test.gd" id="1_jjmgc"]
-[ext_resource type="PackedScene" uid="uid://livv5577jy07" path="res://scenes/entities/tracks/basic_track_part.tscn" id="2_d1bk3"]
-[ext_resource type="PackedScene" uid="uid://dbwbnuxjh618g" path="res://scenes/entities/tracks/launcher_track_part.tscn" id="3_1xuky"]
-[ext_resource type="PackedScene" uid="uid://di4vh4401voyy" path="res://scenes/entities/tracks/station_track_part.tscn" id="4_d1bk3"]
-
+[ext_resource type="PackedScene" uid="uid://livv5577jy07" path="res://scenes/entities/tracks/track_part_4.tscn" id="2_d1bk3"]
+[ext_resource type="PackedScene" uid="uid://dbwbnuxjh618g" path="res://scenes/entities/tracks/track_part_5.tscn" id="3_1xuky"]
+[ext_resource type="PackedScene" uid="uid://di4vh4401voyy" path="res://scenes/entities/tracks/track_part_begin.tscn" id="4_d1bk3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjmgc"]
 size = Vector2(2916, 1592)
