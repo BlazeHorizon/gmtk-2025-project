@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7eid8e6fpbqd"]
+
+[ext_resource type="PackedScene" uid="uid://dtwwhoynn664" path="res://scenes/UI/cutscene_manager.tscn" id="1_pqx1v"]
+[ext_resource type="PackedScene" uid="uid://debaeg15rk26a" path="res://scenes/maps/level1.tscn" id="2_cp54q"]
+[ext_resource type="Resource" uid="uid://2yjl463oqpgm" path="res://scenes/UI/cutscene_frames/first_cutscene.tres" id="3_1erjr"]
+[ext_resource type="AudioStream" uid="uid://bqjvdsqa3d3nl" path="res://assets/music/Deli's Theme.mp3" id="4_go7w6"]
+
+[node name="cutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cutscene_manager" parent="." instance=ExtResource("1_pqx1v")]
+layout_mode = 1
+finished_action = 0
+change_scene_to = ExtResource("2_cp54q")
+cut_scene = ExtResource("3_1erjr")
+
+[node name="Deli\'sTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_go7w6")
+autoplay = true
