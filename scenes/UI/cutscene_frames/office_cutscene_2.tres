@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CutsceneFrames" load_steps=8 format=3 uid="uid://ceobq0ggjig30"]
+
+[ext_resource type="Texture2D" uid="uid://c3lrepomtimhd" path="res://assets/cut_scenes/office_cutscenes/office_2/office_2_1.png" id="1_77ffe"]
+[ext_resource type="Script" uid="uid://bwl7smwceha2g" path="res://scenes/UI/cutscene_frames.gd" id="1_dcybc"]
+[ext_resource type="Texture2D" uid="uid://dgmlraxs7yxmw" path="res://assets/cut_scenes/office_cutscenes/office_2/office_2_2.png" id="2_ffda3"]
+[ext_resource type="Texture2D" uid="uid://bh1ve58pv361t" path="res://assets/cut_scenes/office_cutscenes/office_2/office_2_3.png" id="3_mhy8i"]
+[ext_resource type="Texture2D" uid="uid://d04gne801akw7" path="res://assets/cut_scenes/office_cutscenes/office_2/office_2_4.png" id="4_atl6g"]
+[ext_resource type="Texture2D" uid="uid://bw34217p84gqt" path="res://assets/cut_scenes/office_cutscenes/office_2/office_2_5.png" id="5_rhqya"]
+[ext_resource type="Texture2D" uid="uid://bdhhrqtyf71e7" path="res://assets/cut_scenes/office_cutscenes/office_2/office_2_6.png" id="6_30brm"]
+
+[resource]
+script = ExtResource("1_dcybc")
+frames = Array[CompressedTexture2D]([ExtResource("1_77ffe"), ExtResource("2_ffda3"), ExtResource("3_mhy8i"), ExtResource("4_atl6g"), ExtResource("5_rhqya"), ExtResource("6_30brm")])
+metadata/_custom_type_script = "uid://bwl7smwceha2g"
