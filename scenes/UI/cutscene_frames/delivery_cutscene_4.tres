@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CutsceneFrames" load_steps=5 format=3 uid="uid://bdxcir3hc2e5a"]
+
+[ext_resource type="Script" uid="uid://bwl7smwceha2g" path="res://scenes/UI/cutscene_frames.gd" id="1_eu4lm"]
+[ext_resource type="Texture2D" uid="uid://d012cv40364u1" path="res://assets/cut_scenes/delivery_cutscenes/delivery_4/delivery_4_1.png" id="1_pxglp"]
+[ext_resource type="Texture2D" uid="uid://d1o26vhoc24hk" path="res://assets/cut_scenes/delivery_cutscenes/delivery_4/delivery_4_2.png" id="2_refwn"]
+[ext_resource type="Texture2D" uid="uid://bnit4prgq47t2" path="res://assets/cut_scenes/delivery_cutscenes/delivery_4/delivery_4_3.png" id="3_lhrtk"]
+
+[resource]
+script = ExtResource("1_eu4lm")
+frames = Array[CompressedTexture2D]([ExtResource("1_pxglp"), ExtResource("2_refwn"), ExtResource("3_lhrtk")])
+metadata/_custom_type_script = "uid://bwl7smwceha2g"
